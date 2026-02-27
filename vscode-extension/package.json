@@ -1,0 +1,42 @@
+{
+  "name": "sanscript-lsp",
+  "displayName": "SansScript Language Support",
+  "description": "Language support for SansScript via LSP",
+  "version": "0.1.0",
+  "publisher": "sanscript",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:sanscript"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "sanscript",
+        "aliases": [
+          "SansScript",
+          "sanscript"
+        ],
+        "extensions": [
+          ".san"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "sanscript",
+        "scopeName": "source.sanscript",
+        "path": "./syntaxes/sanscript.tmLanguage.json"
+      }
+    ]
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  }
+}
