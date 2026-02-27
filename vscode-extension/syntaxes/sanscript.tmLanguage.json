@@ -1,0 +1,84 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "SansScript",
+  "scopeName": "source.sanscript",
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#string" },
+    { "include": "#number" },
+    { "include": "#constant" },
+    { "include": "#keyword" },
+    { "include": "#builtin" },
+    { "include": "#logical-operator" },
+    { "include": "#function-def" },
+    { "include": "#function-call" },
+    { "include": "#operator" },
+    { "include": "#variable" },
+    { "include": "#punctuation" }
+  ],
+  "repository": {
+    "comment": {
+      "match": "//.*$",
+      "name": "comment.line.double-slash.sanscript"
+    },
+    "string": {
+      "begin": "\"",
+      "end": "\"",
+      "name": "string.quoted.double.sanscript",
+      "patterns": [
+        {
+          "match": "\\\\.",
+          "name": "constant.character.escape.sanscript"
+        }
+      ]
+    },
+    "number": {
+      "match": "(?:[0-9]+(?:\\.[0-9]+)?|[०-९]+(?:\\.[०-९]+)?)",
+      "name": "constant.numeric.sanscript"
+    },
+    "constant": {
+      "match": "(?<![\\w\\u0900-\\u097F])(सत्यम्|असत्यम्)(?![\\w\\u0900-\\u097F])",
+      "name": "constant.language.sanscript"
+    },
+    "keyword": {
+      "match": "(?<![\\w\\u0900-\\u097F])(यदि|अथवा_यदि|अन्यथा|यावत्|कार्यम्|प्रतिददाति|विरम|अनुवर्तय)(?![\\w\\u0900-\\u097F])",
+      "name": "keyword.control.sanscript"
+    },
+    "builtin": {
+      "match": "(?<![\\w\\u0900-\\u097F])(मुद्रय|निर्गम|दीर्घता|योजय|उपपाठ|अन्वेषय|वर्णाङ्क|अंकवर्ण|पाठ्य|पूर्णाङ्क|पूर्णाङ्क_पाठ_से|विभज|सञ्चिका_पठ)(?=\\s*\\()",
+      "name": "support.function.sanscript"
+    },
+    "logical-operator": {
+      "match": "(?<![\\w\\u0900-\\u097F])(च|वा|न)(?![\\w\\u0900-\\u097F])",
+      "name": "keyword.operator.logical.sanscript"
+    },
+    "function-def": {
+      "match": "(?<=कार्यम्)\\s+([\\w\\u0900-\\u097F]+)",
+      "captures": {
+        "1": { "name": "entity.name.function.sanscript" }
+      }
+    },
+    "function-call": {
+      "match": "([\\w\\u0900-\\u097F]+)(?=\\s*\\()",
+      "captures": {
+        "1": { "name": "entity.name.function.call.sanscript" }
+      }
+    },
+    "operator": {
+      "match": "==|!=|<=|>=|[+\\-*/%<>=]",
+      "name": "keyword.operator.sanscript"
+    },
+    "variable": {
+      "match": "[\\w\\u0900-\\u097F]+",
+      "name": "variable.other.sanscript"
+    },
+    "punctuation": {
+      "patterns": [
+        { "match": "[()]", "name": "punctuation.paren.sanscript" },
+        { "match": "[\\[\\]]", "name": "punctuation.bracket.sanscript" },
+        { "match": ",", "name": "punctuation.comma.sanscript" },
+        { "match": ":", "name": "punctuation.colon.sanscript" }
+      ]
+    }
+  }
+}
