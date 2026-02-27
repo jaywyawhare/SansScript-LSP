@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sanslsp"
+version = "0.1.0"
+description = "Language Server Protocol implementation for SansScript (Devanagari programming language)"
+requires-python = ">=3.9"
+dependencies = [
+    "pygls>=1.3,<3",
+    "lsprotocol",
+]
+
+[project.scripts]
+sanslsp = "sanslsp.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["sanslsp*"]
