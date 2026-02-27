@@ -68,7 +68,7 @@ def create_server() -> LanguageServer:
     """@brief Create and configure the SansScript language server.
     @return Configured LanguageServer ready to start.
     """
-    server = LanguageServer("sanslsp", "v0.1.0")
+    server = LanguageServer("SansScript-LSP", "v0.1.0")
 
     @server.feature(TEXT_DOCUMENT_DID_OPEN)
     def did_open(ls: LanguageServer, params: DidOpenTextDocumentParams):

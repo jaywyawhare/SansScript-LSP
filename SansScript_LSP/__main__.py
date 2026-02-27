@@ -1,5 +1,5 @@
 ## @file __main__.py
-## @brief Entry point: python -m sanslsp
+## @brief Entry point: python -m SansScript_LSP
 
 from .server import create_server
 
