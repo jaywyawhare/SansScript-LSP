@@ -21,7 +21,7 @@ Provides IDE features for `.san` files in any LSP-compatible editor.
 pip install -e .
 ```
 
-This installs the `sanslsp` command and the `sanslsp` Python package.
+This installs the `SansScript-LSP` command and the `SansScript_LSP` Python package.
 
 Requires Python 3.9+ and installs `pygls` and `lsprotocol` as dependencies.
 
@@ -30,9 +30,9 @@ Requires Python 3.9+ and installs `pygls` and `lsprotocol` as dependencies.
 Start the server on stdio (how LSP clients launch it):
 
 ```sh
-sanslsp
+SansScript-LSP
 # or
-python -m sanslsp
+python -m SansScript_LSP
 ```
 
 ### Neovim
@@ -44,8 +44,8 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "sanscript",
   callback = function()
     vim.lsp.start({
-      name = "sanslsp",
-      cmd = { "sanslsp" },
+      name = "SansScript-LSP",
+      cmd = { "SansScript-LSP" },
     })
   end,
 })
@@ -55,7 +55,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 ```elisp
 (add-to-list 'auto-mode-alist '("\\.san\\'" . prog-mode))
-(add-to-list 'eglot-server-programs '(prog-mode . ("sanslsp")))
+(add-to-list 'eglot-server-programs '(prog-mode . ("SansScript-LSP")))
 ```
 
 ### VS Code
@@ -65,7 +65,7 @@ Use the [Generic LSP Client](https://marketplace.visualstudio.com/items?itemName
 ```json
 {
   "glspc.languageId": "sanscript",
-  "glspc.serverCommand": "sanslsp",
+  "glspc.serverCommand": "SansScript-LSP",
   "glspc.pathPattern": "**/*.san"
 }
 ```
@@ -73,7 +73,7 @@ Use the [Generic LSP Client](https://marketplace.visualstudio.com/items?itemName
 ## Project Structure
 
 ```
-sanslsp/
+SansScript_LSP/
   __init__.py
   __main__.py          # Entry point
   server.py            # LanguageServer subclass, feature wiring
