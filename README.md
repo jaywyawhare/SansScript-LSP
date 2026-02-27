@@ -70,22 +70,6 @@ Use the [Generic LSP Client](https://marketplace.visualstudio.com/items?itemName
 }
 ```
 
-## Project Structure
-
-```
-SansScript_LSP/
-  __init__.py
-  __main__.py          # Entry point
-  server.py            # LanguageServer subclass, feature wiring
-  symbols.py           # Keywords, builtins, constants
-  parser.py            # Tokenizer + document parser
-  analyzer.py          # Diagnostics
-  completion.py        # Autocompletion provider
-  hover.py             # Hover information provider
-  definition.py        # Go-to-definition + document symbols
-  semantic_tokens.py   # Semantic token highlighting
-```
-
 ## SansScript Language Reference
 
 ### Keywords
